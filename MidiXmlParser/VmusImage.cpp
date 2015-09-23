@@ -3565,6 +3565,31 @@ float VmusImage::drawSvgMeasure(const std::shared_ptr<OveMeasure>& measure, floa
 
 static char tmpBuffer[1024*64];
 
+int VmusImage::EmbeddedFileIntoSvgContent(const char* pEmbeddedFileName, MyString* pSvgContent)
+{
+	int nFileSize = GetFileSize(pEmbeddedFileName);
+	if (nFileSize <= 0)
+		return -1;
+
+	char* pSvgBuffer = new char[nFileSize+1];
+	if (!pSvgBuffer)
+		return -2;
+
+	memset(pSvgBuffer, 0, nFileSize+1);
+	FILE* pEmbeddedFile = fopen(pEmbeddedFileName, "rb");
+	if (!pEmbeddedFile)
+	{
+		delete []pSvgBuffer;
+		return -3;
+	}
+
+	fread(pSvgBuffer, 1, nFileSize, pEmbeddedFile);
+	fclose(pEmbeddedFile);
+	pSvgContent->appendString(pSvgBuffer);
+	delete []pSvgBuffer;
+	return 0;
+}
+
 void VmusImage::beginSvgImage(CGSize size, int startMeasure /* = 0 */)
 {
     svgXmlContent = new MyString();
@@ -3614,16 +3639,7 @@ void VmusImage::beginSvgImage(CGSize size, int startMeasure /* = 0 */)
     
 	sprintf(tmpBuffer, "<script>\n document.documentElement.style.webkitTouchCallout='none'; document.documentElement.style.webkitUserSelect='none'; var meas_start=%d; var meas_pos=[\n", startMeasure);
 	svgMeasurePosContent->appendString(tmpBuffer);
-
-	const char* pSvgFileName = ".\\Music Font.svg";
-	int nFileSize = GetFileSize(pSvgFileName);
-	char* pSvgBuffer = new char[nFileSize+1];
-	memset(pSvgBuffer, 0, nFileSize+1);
-	FILE* pSvgFile = fopen(pSvgFileName, "rb");
-	fread(pSvgBuffer, 1, nFileSize, pSvgFile);
-	fclose(pSvgFile);
-	svgXmlContent->appendString(pSvgBuffer);
-	delete []pSvgBuffer;
+	EmbeddedFileIntoSvgContent(".\\Music Font.svg", svgXmlContent);
 
 #ifdef NEW_PAGE_MODE
 	CGSize screen_size;
@@ -3679,8 +3695,9 @@ MyString *VmusImage::endSvgImage()
 									  </div>\n").c_str());
 	svgXmlContent->appendString(this->svgMeasurePosContent);
 	svgXmlContent->appendString(svgForceCurveContent);
-    svgXmlContent->appendString("</script>\n<script src='script.js'></script>\n");
-	svgXmlContent->appendString("</body></html>\n");
+    svgXmlContent->appendString("</script>\n<script>");
+	EmbeddedFileIntoSvgContent(".\\script.js", svgXmlContent);
+	svgXmlContent->appendString("</script>\n</body></html>\n");
     return svgXmlContent;
 }
 

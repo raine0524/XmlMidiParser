@@ -130,6 +130,7 @@ private:
     MyRect getBeamRect(const std::shared_ptr<OveBeam>& beam, float start_x, float start_y, const std::shared_ptr<OveMeasure>& measure, bool reload);
     void drawSvgStem(MyRect beam_pos, const std::shared_ptr<OveNote>& note, float x, float y);
 	void loadMusic(VmusMusic* music, const CGSize& musicSize, const CGSize& screenSize);
+	int EmbeddedFileIntoSvgContent(const char* pEmbeddedFileName, MyString* pSvgContent);
     
     void drawSvgMusic();
     void beginSvgImage(CGSize size, int startMeasure = 0);

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Window size="600,572" caption="0,0,0,32" roundcorner="7,7">
+	<Font id="0" name="微软雅黑" size="15" default="true" />
+
+	<Default name="Button" value="normalimage=&quot;file=&apos;BtnStyle\button_nor.png&apos;&quot; hotimage=&quot;file=&apos;BtnStyle\button_over.png&apos;&quot; pushedimage=&quot;file=&apos;BtnStyle\button_down.png&apos;&quot;" />
+
+    <Default name="VScrollBar" value="button1normalimage=&quot;file=&apos;ScrollBar\scroll.png&apos; source=&apos;0,0,16,16&apos;&quot; button1pushedimage=&quot;file=&apos;ScrollBar\scroll.png&apos; source=&apos;0,16,16,32&apos;&quot; button2normalimage=&quot;file=&apos;ScrollBar\scroll.png&apos; source=&apos;0,32,16,48&apos;&quot; button2pushedimage=&quot;file=&apos;ScrollBar\scroll.png&apos; source=&apos;0,48,16,64&apos;&quot; thumbnormalimage=&quot;file=&apos;ScrollBar\scroll.png&apos; source=&apos;0,64,16,80&apos; corner=&apos;2,2,2,2&apos;&quot; thumbpushedimage=&quot;file=&apos;ScrollBar\scroll.png&apos; source=&apos;0,64,16,80&apos; corner=&apos;2,2,2,2&apos;&quot; railnormalimage=&quot;file=&apos;ScrollBar\scroll.png&apos; source=&apos;0,80,16,96&apos; corner=&apos;2,2,2,2&apos;&quot;  bknormalimage=&quot;file=&apos;ScrollBar\scroll.png&apos; source=&apos;0,128,16,146&apos; corner=&apos;2,2,2,2&apos;&quot;" />
+
+    <Default name="HScrollBar" value="button1normalimage=&quot;file=&apos;ScrollBar\scrollH.png&apos; source=&apos;0,0,16,16&apos;&quot; button1pushedimage=&quot;file=&apos;ScrollBar\scrollH.png&apos; source=&apos;16,0,32,16&apos;&quot; button2normalimage=&quot;file=&apos;ScrollBar\scrollH.png&apos; source=&apos;32,0,48,16&apos;&quot; button2pushedimage=&quot;file=&apos;ScrollBar\scrollH.png&apos; source=&apos;48,0,64,16&apos;&quot; thumbnormalimage=&quot;file=&apos;ScrollBar\scrollH.png&apos; source=&apos;64,0,80,16&apos; corner=&apos;2,2,2,2&apos;&quot; thumbpushedimage=&quot;file=&apos;ScrollBar\scrollH.png&apos; source=&apos;64,0,80,16&apos; corner=&apos;2,2,2,2&apos;&quot; railnormalimage=&quot;file=&apos;ScrollBar\scrollH.png&apos; source=&apos;80,0,96,16&apos; corner=&apos;2,2,2,2&apos;&quot; bknormalimage=&quot;file=&apos;ScrollBar\scrollH.png&apos; source=&apos;128,0,146,16&apos; corner=&apos;2,2,2,2&apos;&quot;" />
+
+	<VerticalLayout bkcolor="#00FFFFFF">
+		<!-- 标题栏区 -->
+		<HorizontalLayout height="32" bkcolor="#FF4775CC">
+			<HorizontalLayout />
+
+			<HorizontalLayout width="73">
+				<Button name="minbtn" tooltip="最小化" width="26" height="18" normalimage="BtnStyle\minimize.png" hotimage="BtnStyle\minimize_h.png" pushedimage="BtnStyle\minimize_p.png" />
+				<Button name="closebtn" tooltip="关闭" width="43" height="18" normalimage="BtnStyle\close.png" hotimage="BtnStyle\close_h.png" pushedimage="BtnStyle\close_p.png" />
+			</HorizontalLayout>
+		</HorizontalLayout>
+
+		<!-- 客户区 -->
+		<HorizontalLayout bkcolor="#FFEEEEEE">
+			<List name="fileList" float="true" pos="16,12,0,0" width="443" height="170" vscrollbar="true" hscrollbar="true" bkcolor="#FFFFFFFF" itemtextcolor="#FF000000" itemalign="left" itemendellipsis="true" itemtextpadding="10,0,0,0" menu="true">
+				<ListHeader height="24" bkimage="ListStyle\list_header_bg.png" menu="false">
+					<ListHeaderItem text="根目录或资源文件" width="415" height="24" minwidth="156" align="left" textpadding="10,0,0,0" hotimage="ListStyle\list_header_hot.png" pushedimage="ListStyle\list_header_pushed.png" sepimage="ListStyle\list_header_sep.png" sepwidth="1" />
+				</ListHeader>
+			</List>
+
+			<CheckBox name="xmlExist" text="XML文件存在" selected="true" float="true" pos="470,16,0,0" width="127" height="25" textpadding="3,0,0,0" selectedimage="file='CheckBox\checked.png' dest='0,5,16,21'" normalimage="file='CheckBox\unchecked.png' dest='0,5,16,21'" />
+
+			<Option name="checkRadio" text="检查资源文件" selected="true" float="true" pos="470,50,0,0" width="120" height="25" group="Radio" textpadding="3,0,0,0" selectedimage="file='BtnStyle\RadioBtnSel.png' dest='0,6,13,19'" normalimage="file='BtnStyle\RadioBtnNon.png' dest='0,6,13,19'" />
+
+			<Option name="genRadio" text="生成html/txt" float="true" pos="470,80,0,0" width="120" height="25" group="Radio" textpadding="3,0,0,0" selectedimage="file='BtnStyle\RadioBtnSel.png' dest='0,6,13,19'" normalimage="file='BtnStyle\RadioBtnNon.png' dest='0,6,13,19'" />
+
+			<Button name="startBtn" text="Start" float="true" pos="488,120,0,0" width="60" height="25" />
+
+			<Button name="openLogBtn" text="Open" float="true" pos="488,152,0,0" width="60" height="25" />
+
+			<Progress name="runProgress" tooltip="运行进度" float="true" pos="30,190,0,0" width="320" height="18" bkimage="Progress\bg.png" foreimage="Progress\loading.png" min="0" max="100" value="0" hor="true" />
+
+			<Button name="clearBtn" text="清空" float="true" pos="385,187,0,0" width="60" height="25" />
+
+			<RichEdit name="view_richedit" float="true" pos="16,214,0,0" width="568" height="314" bkcolor="#FF000000" bordercolor="#FF000000" bordersize="2" borderround="5,5" textcolor="#FFFFFFFF" enabled="false" multiline="true" vscrollbar="true" autovscroll="true" readonly="true" />
+		</HorizontalLayout>
+	</VerticalLayout>
+</Window>
