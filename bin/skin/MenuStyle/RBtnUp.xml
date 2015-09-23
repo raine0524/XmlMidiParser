@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window bktrans="true" size="96,36">
+	<Font id="0" name="微软雅黑" size="13" default="true" />
+	
+	<VerticalLayout bkimage="file='MenuStyle\menu_bk.png' corner='36,8,8,8' hole='false'">
+		<List header="hidden" inset="8,8,8,8" itemhotimage="file='MenuStyle\menu_hot_bk.png' corner='2,2,2,2'" itemdisabledbkcolor="#FF0000FF">
+			<ListContainerElement name="menu_delete" height="0" inset="40,0,0,0">
+				<Label text="删除" mouse="false"/>
+			</ListContainerElement>
+		</List>
+	</VerticalLayout>
+</Window>

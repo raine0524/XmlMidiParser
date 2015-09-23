@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ParserUI", "ParserUI\ParserUI.vcxproj", "{DAB4ABB5-A16F-4A35-A42A-5ACF8D8A9558}"
+	ProjectSection(ProjectDependencies) = postProject
+		{63CDEEAA-760E-4983-8DBB-AC852E79130C} = {63CDEEAA-760E-4983-8DBB-AC852E79130C}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MidiXmlParser", "MidiXmlParser\MidiXmlParser.vcxproj", "{63CDEEAA-760E-4983-8DBB-AC852E79130C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DAB4ABB5-A16F-4A35-A42A-5ACF8D8A9558}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DAB4ABB5-A16F-4A35-A42A-5ACF8D8A9558}.Debug|Win32.Build.0 = Debug|Win32
+		{DAB4ABB5-A16F-4A35-A42A-5ACF8D8A9558}.Release|Win32.ActiveCfg = Release|Win32
+		{DAB4ABB5-A16F-4A35-A42A-5ACF8D8A9558}.Release|Win32.Build.0 = Release|Win32
+		{63CDEEAA-760E-4983-8DBB-AC852E79130C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{63CDEEAA-760E-4983-8DBB-AC852E79130C}.Debug|Win32.Build.0 = Debug|Win32
+		{63CDEEAA-760E-4983-8DBB-AC852E79130C}.Release|Win32.ActiveCfg = Release|Win32
+		{63CDEEAA-760E-4983-8DBB-AC852E79130C}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
